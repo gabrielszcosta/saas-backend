@@ -5,10 +5,24 @@ const Schema = use('Schema')
 
 class UserTeamSchema extends Schema {
   up () {
-    this.create('user_teams', (table) => {
+    this.create('user_teams', table => {
       table.increments()
-      table.interger('user_id').unsigned().notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE')
-      table.interger('team_id').unsigned().notNullable().references('id').inTable('teams').onUpdate('CASCADE').onDelete('CASCADE')
+      table
+        .integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('users')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table
+        .integer('team_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('teams')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.timestamps()
     })
   }

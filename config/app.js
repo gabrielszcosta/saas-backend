@@ -4,7 +4,6 @@
 const Env = use('Env')
 
 module.exports = {
-
   /*
   |--------------------------------------------------------------------------
   | Application Name
@@ -27,7 +26,7 @@ module.exports = {
   | to encrypt cookies, sessions and other sensitive data.
   |
   */
-  appKey: Env.getOrFail('APP_KEY'),
+  appKey: Env.get('APP_KEY', 'AdonisJs'),
 
   http: {
     /*
@@ -81,7 +80,6 @@ module.exports = {
     |
     */
     jsonpCallback: 'callback',
-
 
     /*
     |--------------------------------------------------------------------------
