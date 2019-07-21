@@ -4,17 +4,17 @@
 const Model = use('Model')
 
 class Invite extends Model {
-  static boot () {
+  static boot() {
     super.boot()
 
     this.addHook('afterCreate', 'InviteHook.sendInvitationEmail')
   }
 
-  user () {
+  user() {
     return this.belongsTo('App/Models/User')
   }
 
-  team () {
+  team() {
     return this.belongsTo('App/Models/Team')
   }
 }

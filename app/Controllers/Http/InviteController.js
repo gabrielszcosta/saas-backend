@@ -18,7 +18,7 @@ class InviteController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, auth }) {
+  async store({ request, auth }) {
     const invites = request.input('invites')
 
     const data = invites.map(email => ({

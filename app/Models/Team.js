@@ -10,6 +10,10 @@ class Team extends Model {
     )
   }
 
+  projects () {
+    return this.hasMany('App/Models/Project')
+  }
+
   static boot () {
     super.boot()
 
