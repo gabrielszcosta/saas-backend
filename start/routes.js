@@ -38,3 +38,7 @@ Route.group(() => {
 
   Route.get('permissions', 'PermissionController.show').middleware('is:administrator')
 }).middleware(['auth', 'team'])
+
+Route.get('/', () => {
+  return { greeting: 'Hello world in JSON' };
+})
