@@ -41,12 +41,14 @@ class TeamController {
       user_id: auth.user.id
     })
 
-    const roles = await Role.all()
-	const admin = roles.rows.filter(role => role.slug === 'administrator')
+    // const roles = await Role.all()
+	  // const admin = roles.rows.filter(role => role.slug === 'administrator')
 
+    const admin = await Role.findBy('slug', 'administrator')
     const teamJoin = await auth.user.teamJoins().where('team_id', team.id).first()
 
-    await teamJoin.roles().attach([admin[0].id])
+    // await teamJoin.roles().attach([admin[0].id])
+    await teamJoin.roles().attach([admin.id])
 
     return team
   }
